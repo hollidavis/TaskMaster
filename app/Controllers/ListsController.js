@@ -6,9 +6,9 @@ import { loadState, saveState } from "../Utils/LocalStorage.js"
 //Private
 function _draw() {
   let template = ''
-  let lists = ProxyState.lists;
+  let lists = ProxyState.lists
   lists.forEach(l => template += l.Template)
-  document.getElementById("lists").innerHTML = lists.Template
+  document.getElementById("lists").innerHTML = template
 }
 
 //Public
@@ -17,10 +17,9 @@ export default class ListsController {
     ProxyState.on('lists', _draw)
     ProxyState.on('tasks', _draw)
 
-    loadState()
+    _draw
   }
   createList() {
-    // NOTE PREVENTS PAGE RELOADING
     event.preventDefault()
     let form = event.target
     let rawList = {
@@ -36,18 +35,18 @@ export default class ListsController {
     listsService.delete(id)
   }
 
-  createTasks(listId) {
+  createTask(listId) {
     event.preventDefault()
     let form = event.target
     let rawTask = {
       listId,
-      name: form.task.value
+      task: form.task.value
     }
     listsService.createTask(rawTask)
     form.reset()
   }
 
-  removeTopping(id) {
-    pizzasService.removeTopping(id)
+  deleteTask(id) {
+    listsService.deleteTask(id)
   }
 }

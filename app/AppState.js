@@ -1,9 +1,11 @@
+import List from "./Models/List.js"
+import Task from "./Models/Task.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
-  lists = [new List('Tester', 'brown')]
-  tasks = [new Task('Tester Text')]
+  lists = []
+  tasks = []
 }
 
 //NOTE Ignore this

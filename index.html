@@ -26,17 +26,18 @@
         <div id="app"></div>
         <div class="row">
             <div class="col">
-                <form class="d-flex justify-content-start align-items-center my-3">
+                <form onsubmit="app.listsController.createList()"
+                    class="d-flex justify-content-start align-items-center my-3">
                     <div class="form-group mr-3">
-                        <input type="text" name="list" id="list" class="form-control" placeholder="List Name" required
+                        <input type="text" name="name" id="name" class="form-control" placeholder="List Name" required
                             minlength="3" maxlength="15">
                     </div>
                     <div class="form-group mr-3">
                         <div class="color-picker shadow">
-                            <input type="color" name="color" />
+                            <input type="color" name="color" id="color" />
                         </div>
                     </div>
-                    <div class="form-group mr-3">
+                    <div class="mr-3">
                         <button type="submit" class="btn bg-primary">Create</button>
                     </div>
                 </form>

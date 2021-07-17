@@ -4,19 +4,19 @@ import List from "../Models/List.js";
 
 class ListsService {
   createList(rawList) {
-    ProxyState.list = [...ProxyState.list, new List(rawList)]
+    ProxyState.lists = [...ProxyState.lists, new List(rawList)]
   }
 
   createTask(rawTask) {
-    ProxyState.task = [...ProxyState.task, new Task(rawTask)]
+    ProxyState.tasks = [...ProxyState.tasks, new Task(rawTask)]
   }
   delete(id) {
-    ProxyState.list = ProxyState.list.filter(list => list.id != id)
-    ProxyState.task = ProxyState.task.filter(task => task.pizzaId != id)
+    ProxyState.lists = ProxyState.lists.filter(list => list.id != id)
+    ProxyState.tasks = ProxyState.tasks.filter(task => task.listId != id)
   }
 
   deleteTask(id) {
-    ProxyState.task = ProxyState.task.filter(task => task.id != id)
+    ProxyState.tasks = ProxyState.tasks.filter(task => task.id != id)
   }
 }
 
