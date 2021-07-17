@@ -23,10 +23,13 @@ export default class ListsController {
     event.preventDefault()
     let form = event.target
     let rawList = {
+      // @ts-ignore
       name: form.name.value,
+      // @ts-ignore
       color: form.color.value
     }
     listsService.createList(rawList)
+    // @ts-ignore
     form.reset()
   }
 
@@ -40,9 +43,11 @@ export default class ListsController {
     let form = event.target
     let rawTask = {
       listId,
+      // @ts-ignore
       task: form.task.value
     }
     listsService.createTask(rawTask)
+    // @ts-ignore
     form.reset()
   }
 

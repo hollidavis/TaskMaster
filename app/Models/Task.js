@@ -9,10 +9,12 @@ export default class Task {
 
   get Template() {
     return /*html*/`
-    <div>
-      <input type="checkbox" id="checkbox">
-      <label for="checkbox">${this.task}</label>
-    </div>
-      <span><i class="mdi mdi-18px mdi-trash-can" onclick="app.tasksController.removeTask('${this.id}')"></i></span>`
+    <div class="d-flex flex-row justify-content-between">
+      <div>
+        <input type="checkbox" id="checkbox">
+        <label for="checkbox">${this.task}</label>
+      </div>
+        <span><i class="mdi mdi-18px mdi-trash-can" onclick="app.tasksController.deleteTask('${this.id}')"></i></span>
+    </div>`
   }
 }
