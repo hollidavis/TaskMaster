@@ -34,8 +34,8 @@ export default class ListsController {
   }
 
 
-  destroy(id) {
-    listsService.delete(id)
+  deleteList(id) {
+    listsService.deleteList(id)
   }
 
   createTask(listId) {
