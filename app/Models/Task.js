@@ -14,8 +14,8 @@ export default class Task {
       <div>
         <input type="checkbox" id="${this.id}" onclick="app.listsController.checked('${this.id}')" ${this.check ? "checked" : ""} >
         <label for="checkbox">${this.task}</label>
-      </div>
-        <span><i class="mdi mdi-18px mdi-trash-can" onclick="app.listsController.deleteTask('${this.id}')"></i></span>
-    </div>`
+      </div >
+      <span><i class="mdi mdi-18px mdi-trash-can" onclick="app.listsController.deleteTask('${this.id}')"></i></span>
+    </div > `
   }
 }
