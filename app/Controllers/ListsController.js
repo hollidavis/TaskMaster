@@ -53,6 +53,7 @@ export default class ListsController {
     listsService.createTask(rawTask)
     // @ts-ignore
     form.reset()
+    _draw()
   }
 
   async deleteTask(id) {
@@ -64,5 +65,6 @@ export default class ListsController {
   checked(id) {
     listsService.checked(id)
     saveState()
+    _draw()
   }
 }

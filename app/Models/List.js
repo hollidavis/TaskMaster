@@ -3,12 +3,12 @@ import { ProxyState } from "../AppState.js"
 import { generateId } from "../Utils/GenerateId.js"
 export default class List {
 
-  constructor({ name, color, id = generateId() }) {
+  constructor({ name, color, id = generateId(), totalCount, checkCount }) {
     this.name = name
     this.color = color
     this.id = id
-    this.count = 0
-    this.checked = 0
+    this.totalCount = totalCount || 0
+    this.checkCount = checkCount || 0
   }
 
   get Template() {
@@ -21,7 +21,7 @@ export default class List {
             <button type="button" class="btn btn-outline-dark" onclick = "app.listsController.deleteList('${this.id}')">X</button>
           </div>
           <div class = "w-100 d-flex align-items-center justify-content-center">
-            <p class="m-0">${this.checked}/${this.count}<p>
+            <p class="m-0">${this.checkCount}/${this.totalCount}<p>
           </div>
         </div>
         <div class="card-body">
