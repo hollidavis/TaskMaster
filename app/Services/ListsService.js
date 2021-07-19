@@ -1,6 +1,7 @@
 import { ProxyState } from "../AppState.js";
 import Task from "../Models/Task.js";
 import List from "../Models/List.js";
+import NotificationsService from "../Services/NotificationsService.js";
 
 class ListsService {
   createList(rawList) {
@@ -19,9 +20,14 @@ class ListsService {
     ProxyState.tasks = ProxyState.tasks.filter(task => task.id != id)
   }
 
-  checked(task) {
-    let found = ProxyState.lists.find(l => l.id == task.listId)
-    found.checked++
+  checked(id) {
+    let foundTask = ProxyState.tasks.find(t => t.id == id)
+    if (foundTask.check == false) {
+      foundTask.check = true
+      NotificationsService.toast("You did it! Good work")
+    } else {
+      foundTask.check = false
+    }
   }
 }
 

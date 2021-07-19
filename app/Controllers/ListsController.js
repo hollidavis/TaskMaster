@@ -36,7 +36,6 @@ export default class ListsController {
     form.reset()
   }
 
-
   async deleteList(id) {
     if (await NotificationsService.confirmAction("Are you sure you wanna delete this?")) {
       listsService.deleteList(id)
@@ -60,5 +59,10 @@ export default class ListsController {
     if (await NotificationsService.confirmAction("Are you sure you wanna delete this?")) {
       listsService.deleteTask(id)
     }
+  }
+
+  checked(id) {
+    listsService.checked(id)
+    saveState()
   }
 }

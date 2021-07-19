@@ -31,7 +31,7 @@ export default class List {
             <div>
                 <form onsubmit="app.listsController.createTask('${this.id}')" class="d-flex justify-content-between line">
                     <div class="form-group mr-2">
-                        <input type="text" name="task" id="task" class="form-control" placeholder="Add Task..."
+                        <input type="text" name="task" class="form-control" placeholder="Add Task..."
                             required minlength="3" maxlength="50">
                     </div>
                     <div class="form-group">
