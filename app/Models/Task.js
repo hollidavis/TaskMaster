@@ -13,7 +13,7 @@ export default class Task {
     <div class="d-flex flex-row justify-content-between">
       <div>
         <input type="checkbox" id="${this.id}" onclick="app.listsController.checked('${this.id}')" ${this.check ? "checked" : ""} >
-        <label for="checkbox">${this.task}</label>
+        <label for="checkbox" class = "${this.check ? "strikethrough" : ""}">${this.task}</label>
       </div >
       <span><i class="mdi mdi-18px mdi-trash-can" onclick="app.listsController.deleteTask('${this.id}')"></i></span>
     </div > `
