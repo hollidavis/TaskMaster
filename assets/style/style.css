@@ -1,3 +1,14 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Yomogi', cursive;
+}
+
+main {
+  flex-grow: 1;
+}
+
 input[type='color'] {
   position: absolute;
   right: -8px;
@@ -16,4 +27,8 @@ input[type='color'] {
 
 .line{
   border-bottom: 1px solid lightgray;
+}
+
+.title{
+  background-color: #9DCBBA;
 }

@@ -18,6 +18,11 @@ class ListsService {
   deleteTask(id) {
     ProxyState.tasks = ProxyState.tasks.filter(task => task.id != id)
   }
+
+  checked(task) {
+    let found = ProxyState.lists.find(l => l.id == task.listId)
+    found.checked++
+  }
 }
 
 export const listsService = new ListsService();

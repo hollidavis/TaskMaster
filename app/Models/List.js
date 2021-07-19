@@ -7,15 +7,22 @@ export default class List {
     this.name = name
     this.color = color
     this.id = id
+    this.count = 0
+    this.checked = 0
   }
 
   get Template() {
     return /*html*/`
   <div class="col-md-3" id = "${this.id}">
     <div class="card mb-3">
-        <div class="d-flex align-items-center justify-content-between card-header text-center" style="background-color:${this.color}">
-            <h5 class="m-0">${this.name}</h5>
+        <div class="card-header" style="background-color:${this.color}">
+          <div class = "w-100 d-flex align-items-center justify-content-between text-center">
+            <h5 class="m-0"><b>${this.name}</b></h5>
             <button type="button" class="btn btn-outline-dark" onclick = "app.listsController.deleteList('${this.id}')">X</button>
+          </div>
+          <div class = "w-100 d-flex align-items-center justify-content-center">
+            <p class="m-0">${this.checked}/${this.count}<p>
+          </div>
         </div>
         <div class="card-body">
             <div id="tasks" class="d-flex flex-column justify-content-between">

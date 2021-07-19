@@ -1,6 +1,7 @@
 import { ProxyState } from "../AppState.js";
 import { listsService } from "../Services/ListsService.js";
-import { loadState, saveState } from "../Utils/LocalStorage.js"
+import { loadState, saveState } from "../Utils/LocalStorage.js";
+import NotificationsService from "../Services/NotificationsService.js";
 
 
 //Private
@@ -16,8 +17,10 @@ export default class ListsController {
   constructor() {
     ProxyState.on('lists', _draw)
     ProxyState.on('tasks', _draw)
+    ProxyState.on('lists', saveState)
+    ProxyState.on('tasks', saveState)
 
-    _draw
+    loadState()
   }
   createList() {
     event.preventDefault()
@@ -34,8 +37,10 @@ export default class ListsController {
   }
 
 
-  deleteList(id) {
-    listsService.deleteList(id)
+  async deleteList(id) {
+    if (await NotificationsService.confirmAction("Are you sure you wanna delete this?")) {
+      listsService.deleteList(id)
+    }
   }
 
   createTask(listId) {
@@ -51,7 +56,9 @@ export default class ListsController {
     form.reset()
   }
 
-  deleteTask(id) {
-    listsService.deleteTask(id)
+  async deleteTask(id) {
+    if (await NotificationsService.confirmAction("Are you sure you wanna delete this?")) {
+      listsService.deleteTask(id)
+    }
   }
 }
